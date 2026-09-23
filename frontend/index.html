@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b18">
+  <meta name="description" content="AirTap — El hareketlerinle havada efekt seç ve gücünü kamerada fırlat.">
+  <title>AirTap Pro V3 — Havaya dokun, gücünü seç.</title>
+  <link rel="icon" href="assets/icons/airtap-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/app.css?v=3.1.0">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <main id="landingScreen" class="landing-screen">
+    <header class="site-header shell">
+      <a class="brand" href="./" aria-label="AirTap ana sayfa">
+        <img src="assets/icons/airtap-mark.svg" alt="" width="42" height="42">
+        <span>AirTap</span>
+      </a>
+      <nav aria-label="Ana menü">
+        <button class="nav-link" type="button" data-open-tutorial data-i18n="howItWorks">Nasıl Çalışır?</button>
+        <button id="openFeedbackButton" class="nav-link" type="button" data-i18n="feedback">Geri bildirim</button>
+        <button class="button button-small button-ghost" id="startMiniButton" type="button" data-i18n="startCamera">Kamerayı Başlat</button>
+      </nav>
+    </header>
+
+    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> Hareket kontrollü kamera deneyimi <b class="version-pill">PRO V3.1</b></div>
+        <h1>Havaya dokun,<br><span>gücünü seç.</span></h1>
+        <p>İşaret parmağınla efekt çarkını aç. Parmağını kameraya doğru iki kez ileri–geri dokundur. Avucunu ileri it ve gücün ekrana fırlasın.</p>
+        <div class="hero-actions">
+          <button id="startCameraButton" class="button button-primary button-large" type="button">
+            <span class="button-orb" aria-hidden="true"></span>
+            <span class="button-text" data-i18n="startCamera">Kamerayı Başlat</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <button class="button button-quiet button-large" type="button" data-open-tutorial>
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span data-i18n="howItWorks">Nasıl Çalışır?</span>
+          </button>
+        </div>
+        <div id="cameraError" class="inline-alert is-hidden" role="alert">
+          <span aria-hidden="true">!</span>
+          <p id="cameraErrorText"></p>
+        </div>
+        <div class="trust-row">
+          <span>✓ Üyelik yok</span><span>✓ Görüntü cihazında işlenir</span><span>✓ Chrome ve Edge uyumlu</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" role="img" aria-label="AirTap efekt seçme ön izlemesi">
+        <div class="demo-frame">
+          <div class="demo-grid"></div>
+          <div class="demo-hand" aria-hidden="true">
+            <div class="demo-finger"></div>
+            <div class="demo-palm"></div>
+            <div class="demo-glow"></div>
+          </div>
+          <div class="demo-wheel" aria-hidden="true">
+            <span style="--i:0">🕸️</span><span style="--i:1">🔥</span><span style="--i:2">❄️</span>
+            <span style="--i:3">⚡</span><span style="--i:4">◉</span><span style="--i:5">✦</span>
+            <b>Air<br>Tap</b>
+          </div>
+          <div class="demo-caption"><span></span> El hareketin güce dönüşür</div>
+        </div>
+        <div class="floating-chip chip-fire">🔥 <b>Alev Topu</b><small>Seçildi</small></div>
+        <div class="floating-chip chip-local">⌁ <b>Cihazında</b><small>Gizli işleme</small></div>
+      </div>
+    </section>
+
+    <section class="steps-section shell" aria-labelledby="stepsTitle">
+      <div class="section-heading">
+        <span>3 hareket. Sonsuz eğlence.</span>
+        <h2 id="stepsTitle">Ekrana dokunmadan kontrol sende.</h2>
+      </div>
+      <div class="step-grid">
+        <article class="step-card"><span class="step-no">01</span><div class="step-icon">☝️</div><h3 data-i18n="show">Göster</h3><p data-i18n="showBody">Yalnızca işaret parmağını kaldır.</p></article>
+        <article class="step-card featured"><span class="step-no">02</span><div class="step-icon">◎</div><h3 data-i18n="choose">Seç</h3><p data-i18n="chooseBody">Efektin üzerine gel; işaret parmağını kameraya doğru iki kez ileri–geri dokundur.</p></article>
+        <article class="step-card"><span class="step-no">03</span><div class="step-icon">🖐️</div><h3 data-i18n="launch">Fırlat</h3><p data-i18n="launchBody">Avucunu aç ve elini kameraya doğru hızlıca it.</p></article>
+      </div>
+    </section>
+
+    <section class="privacy-band shell">
+      <div class="privacy-icon" aria-hidden="true">⌾</div>
+      <div><h2 data-i18n="privacyTitle">Görüntün sana ait</h2><p data-i18n="privacyBody">El algılama cihazında çalışır. Kamera görüntün AirTap sunucusuna gönderilmez.</p></div>
+      <button class="button button-ghost" type="button" data-open-tutorial>Nasıl işlediğini gör</button>
+    </section>
+
+    <footer class="site-footer shell">
+      <a class="brand brand-small" href="./"><img src="assets/icons/airtap-mark.svg" alt="" width="30" height="30"><span>AirTap</span></a>
+      <p>© 2026 AirTap · Elleriniz artık kumandan.</p>
+      <div><button type="button" data-open-tutorial>Gizlilik</button><button type="button" data-open-tutorial>Yardım</button></div>
+    </footer>
+  </main>
+
+  <section id="studioScreen" class="studio-screen is-hidden" aria-label="AirTap kamera stüdyosu">
+    <div id="cameraStage" class="camera-stage">
+      <video id="cameraVideo" muted playsinline aria-hidden="true"></video>
+      <canvas id="trackingCanvas" class="stage-canvas" aria-hidden="true"></canvas>
+      <canvas id="effectCanvas" class="stage-canvas" aria-hidden="true"></canvas>
+      <div class="cinematic-fx" aria-hidden="true"><i class="cinematic-bloom"></i><i class="cinematic-ring"></i><i class="cinematic-streak"></i></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+
+      <header class="studio-topbar glass-panel">
+        <a class="brand brand-small" href="./" aria-label="AirTap"><img src="assets/icons/airtap-mark.svg" alt="" width="34" height="34"><span>AirTap</span></a>
+        <div id="trackingStatus" class="tracking-status" data-state="waiting"><span class="status-dot"></span><span id="trackingStatusText">El bekleniyor</span></div>
+        <span id="fpsBadge" class="fps-badge is-hidden">0 FPS</span>
+        <div class="topbar-actions">
+          <button id="settingsButton" class="icon-button" type="button" data-i18n-aria="settings" aria-label="Ayarlar">⚙</button>
+          <button id="closeCameraButton" class="icon-button close-button" type="button" data-i18n-aria="closeCamera" aria-label="Kamerayı kapat">×</button>
+        </div>
+      </header>
+
+      <div class="selected-effect glass-panel">
+        <span class="selected-label" data-i18n="selectedEffect">Seçili güç</span>
+        <div><span id="selectedEffectIcon" class="selected-icon">🔥</span><strong id="selectedEffectName">Alev Topu</strong></div>
+        <small>☝ Değiştirmek için tek parmak</small>
+      </div>
+
+      <div id="effectWheel" class="effect-wheel is-hidden" role="menu" aria-label="Efekt çarkı"></div>
+      <div id="gestureHint" class="gesture-hint glass-panel" aria-live="polite">İşaret parmağını kaldır</div>
+      <div id="airTapSensor" class="airtap-sensor glass-panel" data-phase="waiting" aria-live="polite">
+        <div class="sensor-heading"><span class="sensor-live"></span><strong>PARMAK SENSÖRÜ</strong><b>PRO V3.1</b></div>
+        <div class="sensor-track"><i id="airTapSensorFill"></i><span class="sensor-threshold"></span></div>
+        <div class="sensor-steps"><span id="sensorAim" class="is-active">1 · HEDEFLE</span><span id="sensorPush">2 · İLERİ DOKUN</span><span id="sensorReturn">3 · GERİ ÇEK</span></div>
+        <small id="airTapSensorText">Kameradaki işaret parmağın bekleniyor</small>
+      </div>
+      <div id="countdown" class="countdown is-hidden" aria-live="assertive">3</div>
+
+      <div class="studio-controls glass-panel">
+        <button id="photoButton" class="control-button" type="button" data-i18n-aria="capture" aria-label="Fotoğraf"><span>▣</span><small data-i18n="capture">Fotoğraf</small></button>
+        <button id="recordButton" class="record-button" type="button" data-i18n-aria="record" aria-label="Kayıt"><span></span></button>
+        <span id="recordTime" class="record-time" aria-live="polite"></span>
+        <button id="switchCameraButton" class="control-button" type="button" data-i18n-aria="switchCamera" aria-label="Kamera değiştir"><span>↻</span><small>Kamera</small></button>
+        <button id="micButton" class="control-button" type="button" aria-label="Mikrofon"><span>♩</span><small>Mikrofon</small></button>
+      </div>
+
+      <div class="gesture-only-badge" aria-label="Hareket kontrolü etkin"><span>⌁</span><strong>EL KONTROLÜ</strong><small>Fare kullanılmaz</small></div>
+    </div>
+  </section>
+
+  <div id="settingsBackdrop" class="drawer-backdrop is-hidden"></div>
+  <aside id="settingsPanel" class="settings-panel" inert aria-labelledby="settingsTitle">
+    <header><div><span class="panel-kicker">Kişiselleştir</span><h2 id="settingsTitle" data-i18n="settingsTitle">AirTap Ayarları</h2></div><button id="closeSettingsButton" class="icon-button" type="button" aria-label="Kapat">×</button></header>
+    <div id="settingsForm">
+      <fieldset><legend>Genel</legend>
+        <label class="setting-row"><span>Dil<small>Arayüz dili</small></span><select data-setting="language"><option value="tr">Türkçe</option><option value="en">English</option></select></label>
+        <label class="setting-row"><span>Tema<small>Arayüz görünümü</small></span><select data-setting="theme"><option value="dark">Koyu</option><option value="light">Açık</option></select></label>
+        <label class="setting-row"><span>Son efekti hatırla</span><input type="checkbox" data-setting="rememberEffect"><i class="switch"></i></label>
+        <label class="setting-row"><span>Eğitim ipuçları</span><input type="checkbox" data-setting="showTutorial"><i class="switch"></i></label>
+      </fieldset>
+      <fieldset><legend>Kamera ve takip</legend>
+        <label class="setting-row"><span>Görüntüyü aynala</span><input type="checkbox" data-setting="mirror"><i class="switch"></i></label>
+        <label class="setting-row"><span>Kamera kalitesi</span><select data-setting="cameraQuality"><option value="high">720p / yüksek</option><option value="low">480p / akıcı</option></select></label>
+        <label class="setting-row range-row"><span>El takip hassasiyeti</span><input type="range" min="1" max="100" data-setting="trackingSensitivity"><span class="range-value"></span></label>
+        <label class="setting-row"><span>Geliştirici FPS göstergesi</span><input id="developerMode" type="checkbox" data-setting="developerMode"><i class="switch"></i></label>
+      </fieldset>
+      <fieldset><legend>Hareketler</legend>
+        <label class="setting-row"><span>Seçim yöntemi</span><select data-setting="selectionMethod"><option value="doubleTap">İşaret parmağıyla çift dokunma</option><option value="dwell">Parmakla üzerinde bekleme</option></select></label>
+        <label class="setting-row range-row"><span>Çift dokunma</span><input type="range" min="1" max="100" data-setting="tapSensitivity"><span class="range-value"></span></label>
+        <label class="setting-row range-row"><span>İleri itme</span><input type="range" min="1" max="100" data-setting="pushSensitivity"><span class="range-value"></span></label>
+        <button class="button button-ghost button-full" type="button" data-open-calibration data-i18n="calibration">Kalibrasyon</button>
+      </fieldset>
+      <fieldset><legend>Efekt ve ses</legend>
+        <label class="setting-row"><span>Efekt kalitesi</span><select data-setting="effectQuality"><option value="high">Yüksek</option><option value="medium">Orta</option><option value="low">Düşük</option></select></label>
+        <label class="setting-row range-row"><span>Parçacık yoğunluğu</span><input type="range" min="20" max="100" data-setting="particleDensity"><span class="range-value"></span></label>
+        <label class="setting-row range-row"><span>Ana ses</span><input type="range" min="0" max="100" data-setting="masterVolume"><span class="range-value"></span></label>
+        <label class="setting-row range-row"><span>Efekt sesi</span><input type="range" min="0" max="100" data-setting="effectVolume"><span class="range-value"></span></label>
+        <label class="setting-row"><span>Sessiz mod</span><input type="checkbox" data-setting="muted"><i class="switch"></i></label>
+        <label class="setting-row"><span>Neon parlama</span><input type="checkbox" data-setting="glow"><i class="switch"></i></label>
+        <label class="setting-row"><span>Ekran sarsıntısı</span><input type="checkbox" data-setting="screenShake"><i class="switch"></i></label>
+        <label class="setting-row"><span>Telefon titreşimi</span><input type="checkbox" data-setting="vibration"><i class="switch"></i></label>
+        <label class="setting-row"><span>Hareketi azalt</span><input type="checkbox" data-setting="reduceMotion"><i class="switch"></i></label>
+      </fieldset>
+      <fieldset><legend>Kayıt</legend>
+        <label class="setting-row"><span>Mikrofonu videoya ekle</span><input type="checkbox" data-setting="includeMicrophone"><i class="switch"></i></label>
+      </fieldset>
+    </div>
+    <button id="resetSettingsButton" class="button button-quiet button-full" type="button" data-i18n="reset">Varsayılana dön</button>
+  </aside>
+
+  <dialog id="tutorialDialog" class="modal tutorial-modal">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Kapat">×</button>
+    <div class="modal-heading"><span class="panel-kicker">30 saniyelik eğitim</span><h2 data-i18n="tutorialTitle">AirTap’i 3 harekette kullan</h2><p>Kameran yalnızca sen başlattığında açılır.</p></div>
+    <div class="tutorial-steps">
+      <article><span>1</span><div class="tutorial-visual">☝️<i></i></div><h3>Çarkı aç</h3><p>Sadece işaret parmağını kaldır ve yarım saniye sabit tut.</p></article>
+      <article><span>2</span><div class="tutorial-visual">◎<i></i></div><h3>Gücünü seç</h3><p>Bir efektin üzerine gel. Parmağını kameraya doğru iki kez itip geri çek.</p></article>
+      <article><span>3</span><div class="tutorial-visual">🖐️<i></i></div><h3>Fırlat</h3><p>Avucunu açık tut ve elini kameraya doğru hızlıca it.</p></article>
+    </div>
+    <div class="modal-note"><span>İpucu</span> Parmağını kameraya doğru kısa ve net biçimde ileri–geri hareket ettir. İlk dokunuşta ekranda “1 / 2” göstergesi görünür.</div>
+    <div class="modal-actions"><button class="button button-ghost" type="button" data-open-calibration data-i18n="calibration">Kalibrasyon</button><button class="button button-primary" type="button" data-close-dialog>Anladım, başlayalım</button></div>
+  </dialog>
+
+  <dialog id="calibrationDialog" class="modal compact-modal">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Kapat">×</button>
+    <div class="calibration-orb">✋<span></span></div>
+    <div class="progress-track"><i id="calibrationProgress"></i></div>
+    <h2 id="calibrationStepTitle">1. Normal uzaklık</h2>
+    <p id="calibrationStepText">Açık avucunu normal kullanım uzaklığında tut.</p>
+    <button id="calibrationNext" class="button button-primary button-full" type="button" data-i18n="next">Sonraki</button>
+  </dialog>
+
+  <dialog id="previewDialog" class="modal preview-modal">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Kapat">×</button>
+    <div class="modal-heading"><span class="panel-kicker">Kayıt tamamlandı</span><h2>AirTap videon hazır</h2></div>
+    <video id="previewVideo" controls playsinline></video>
+    <div class="modal-actions"><button class="button button-quiet" type="button" data-close-dialog data-i18n="retake">Kapat</button><button id="downloadVideoButton" class="button button-primary" type="button" data-i18n="download">Videoyu indir</button></div>
+  </dialog>
+
+  <dialog id="feedbackDialog" class="modal compact-modal">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Kapat">×</button>
+    <div class="modal-heading"><span class="panel-kicker">Birlikte geliştirelim</span><h2>AirTap nasıl?</h2><p>Kısa geri bildirimin bir sonraki sürüme yön verir.</p></div>
+    <form id="feedbackForm">
+      <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off">
+      <label>Konu<select name="category" required><option value="experience">Deneyim</option><option value="idea">Fikir</option><option value="bug">Hata</option></select></label>
+      <label>Puan<select name="rating" required><option value="5">5 — Çok iyi</option><option value="4">4 — İyi</option><option value="3">3 — Orta</option><option value="2">2 — Gelişmeli</option><option value="1">1 — Kötü</option></select></label>
+      <label>Mesaj<textarea name="message" minlength="10" maxlength="1000" rows="5" placeholder="Neyi beğendin veya neyi değiştirelim?" required></textarea></label>
+      <button class="button button-primary button-full" type="submit" data-i18n="send">Gönder</button>
+    </form>
+  </dialog>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+  <canvas id="brightnessCanvas" class="utility-canvas" width="32" height="18" aria-hidden="true"></canvas>
+
+  <script src="assets/vendor/mediapipe/hands.js?v=3.1.0"></script>
+  <script type="module" src="assets/js/app.js?v=3.1.0"></script>
+</body>
+</html>

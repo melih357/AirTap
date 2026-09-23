@@ -1,0 +1,9 @@
+AirTap Pro V3.1.0
+Build: 2026-08-08-pro-finger-sensor
+
+Bu paketin ayırt edici işaretleri:
+- Ana sayfada PRO V3.1 etiketi
+- Kamera ekranında canlı PARMAK SENSÖRÜ paneli
+- Fareden bağımsız hibrit derinlik + parmak kısalması ölçümü
+- Fırlatmada tam ekran sinematik bloom, ışık çizgisi ve şok dalgası
+- HTML/CSS/JS için önbellek kırma
